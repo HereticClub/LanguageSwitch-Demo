@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:LanguageSwitchDemo"
+             xmlns:model="clr-namespace:LanguageSwitchDemo.Model"
+             xmlns:vm="clr-namespace:LanguageSwitchDemo.ViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LanguageSwitchDemo.View.ItemIndexModePage">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="{Binding Languages[Navigation_Item_Index]}" Style="{StaticResource NavigationLabelText}"></Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <vm:ItemIndexModePageViewModel></vm:ItemIndexModePageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Languages[Label_Welcome]}" HorizontalTextAlignment="Center" FontSize="64"></Label>
+            <Button Text="{Binding Languages[Button_Select_Language]}" Command="{Binding ButtonSelectLanguageCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:ext="clr-namespace:LanguageSwitchDemo.Extension"
+             xmlns:local="clr-namespace:LanguageSwitchDemo"
+             xmlns:model="clr-namespace:LanguageSwitchDemo.Model"
+             xmlns:vm="clr-namespace:LanguageSwitchDemo.ViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LanguageSwitchDemo.View.SelectLanguage2Page">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="{ext:Translation Key=Navigation_Select_Language, LangId={Binding SelectedLanguage}, BindingContext={Static local:App.Config}}" Style="{StaticResource NavigationLabelText}"></Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <vm:SelectLanguage2PageViewModel></vm:SelectLanguage2PageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame>
+                <StackLayout>
+                    <Label Text="{ext:Translation Key=Label_Current_Using, LangId={Binding SelectedLanguage}, BindingContext={Static local:App.Config}}" FontSize="Medium" />
+                    <Label Text="{ext:Translation Key=Label_Current_Language, LangId={Binding SelectedLanguage}, BindingContext={Static local:App.Config}}" FontSize="Medium" TextColor="ForestGreen"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{ext:Translation Key=Label_Select_Language, LangId={Binding SelectedLanguage}, BindingContext={Static local:App.Config}}" VerticalTextAlignment="Center"></Label>
+                        <Picker ItemsSource="{Binding LanguageList}" ItemDisplayBinding="{Binding DisplayText}" SelectedItem="{Binding SelectedLanguageItem, Mode=TwoWay}" HorizontalOptions="FillAndExpand"></Picker>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

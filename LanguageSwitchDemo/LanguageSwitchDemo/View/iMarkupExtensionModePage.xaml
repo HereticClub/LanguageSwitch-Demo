@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:ext="clr-namespace:LanguageSwitchDemo.Extension"
+             xmlns:local="clr-namespace:LanguageSwitchDemo"
+             xmlns:model="clr-namespace:LanguageSwitchDemo.Model"
+             xmlns:vm="clr-namespace:LanguageSwitchDemo.ViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LanguageSwitchDemo.View.iMarkupExtensionModePage">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="{ext:Translation Key=Navigation_iMarkupExtension, LangId={Binding SelectedLanguage}, BindingContext={Static local:App.Config}}" Style="{StaticResource NavigationLabelText}"></Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <vm:iMarkupExtensionModePageViewModel></vm:iMarkupExtensionModePageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{ext:Translation Key=Label_Welcome, BindingContext={Static local:App.Config}, LangId={Binding SelectedLanguage}}" HorizontalTextAlignment="Center" FontSize="64"></Label>
+            <Button Text="{ext:Translation Key=Button_Select_Language, BindingContext={Static local:App.Config}, LangId={Binding SelectedLanguage}}" Command="{Binding ButtonSelectLanguageCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

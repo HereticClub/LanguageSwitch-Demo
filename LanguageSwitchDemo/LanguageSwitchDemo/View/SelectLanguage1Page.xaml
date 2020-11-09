@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:LanguageSwitchDemo"
+             xmlns:model="clr-namespace:LanguageSwitchDemo.Model"
+             xmlns:vm="clr-namespace:LanguageSwitchDemo.ViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LanguageSwitchDemo.View.SelectLanguage1Page">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="{Binding Languages[Navigation_Select_Language]}" Style="{StaticResource NavigationLabelText}"></Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <vm:SelectLanguage1PageViewModel></vm:SelectLanguage1PageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Frame>
+            <StackLayout>
+                <Label Text="{Binding Languages[Label_Current_Using]}" FontSize="Medium" />
+                <Label Text="{Binding Languages[Label_Current_Language]}" FontSize="Medium" TextColor="ForestGreen"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Languages[Label_Select_Language]}" VerticalTextAlignment="Center"></Label>
+                    <Picker ItemsSource="{Binding LanguageList}" ItemDisplayBinding="{Binding DisplayText}" SelectedItem="{Binding SelectedLanguageItem, Mode=TwoWay}" HorizontalOptions="FillAndExpand"></Picker>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

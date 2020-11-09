@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vm="clr-namespace:LanguageSwitchDemo.ViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LanguageSwitchDemo.View.HomePage">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Home" Style="{StaticResource NavigationLabelText}"></Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <vm:HomePageViewModel></vm:HomePageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Frame>
+            <StackLayout>
+                <Label Text="Welcome to language switch demo" FontSize="Large"></Label>
+                <Label Text="This page will NOT display a language switch presentation"></Label>
+                <Label Text="To present language switch demo, click button as below"></Label>
+                <Button Text="Item-Index Mode" Command="{Binding ButtonItemIndexModeCommand}"></Button>
+                <Button Text="iMarkupExtension Mode" Command="{Binding ButtoniMarkupExtensionModeCommand}"></Button>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>
